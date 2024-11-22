@@ -1,0 +1,162 @@
+@import '../../../assets/styles/variables.css';
+
+:root {
+  --labelBackgroundColor: color(white a(85%));
+  --labelHeight: 36px;
+}
+
+.assets {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  & > * {
+    flex: 0 0 100%;
+    @media (min-width: 480px) {
+      flex: 0 0 50%;
+    }
+    @media (min-width: 700px) {
+      flex: 0 0 33%;
+    }
+    @media (min-width: 1200px) {
+      flex: 0 0 25%;
+    }
+  }
+}
+
+.asset {
+  position: relative;
+  padding: 0;
+
+  &:before {
+    display: block;
+    content: '';
+    width: 0;
+    float: left;
+    padding-bottom: 66.6%;
+  }
+
+  & > img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.label {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+
+  height: var(--labelHeight);
+  max-width: 75%;
+
+  background: var(--labelBackgroundColor);
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    position: absolute;
+    top: 0;
+
+    border: calc(var(--labelHeight) / 2) solid var(--labelBackgroundColor);
+    border-top-color: transparent;
+  }
+
+  &:before {
+    left: calc(var(--labelHeight) * -1);
+    border-left-color: transparent;
+  }
+
+  &:after {
+    right: calc(var(--labelHeight) * -1);
+    border-right-color: transparent;
+  }
+}
+
+.labelContent {
+  height: var(--labelHeight);
+  margin: 0;
+
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.title {
+  padding-top: 4px;
+  line-height: 18px;
+}
+
+.created {
+  color: #666;
+  font-size: 0.65em;
+  text-align: center;
+  line-height: 14px;
+}
+
+.fileIcon {
+  width: 60px;
+  height: 90px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #56AED2;
+  text-align: center;
+  line-height: 90px;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.2em;
+
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 8px solid #1D78A4;
+    border-top-color: var(--color-background);
+    border-right-color: var(--color-background);
+    top: 0;
+    right: 0;
+  }
+}
+
+.dropzone {
+  padding: var(--layout-gutter);
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  &:before {
+    content: 'Drag & drop files anywhere to upload';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5em;
+    border: 1px solid black;
+    border-top: none;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    font-size: 0.8em;
+    opacity: 0.6;
+  }
+}
+
+.dropzoneActive {
+  background: repeating-linear-gradient(-45deg, #ddd, #ddd 8px,transparent 8px, transparent 12px);
+}
+
+.changeSpaceLink {
+  position: absolute;
+  top: var(--layout-gutter);
+  right: var(--layout-gutter);
+}

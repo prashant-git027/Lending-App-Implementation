@@ -1,0 +1,22 @@
+@import './variables';
+@import './fonts';
+
+html {
+  font-family: "overpass", sans-serif;
+  font-size: 16px;
+  color: var(--color-font);
+  background-color: var(--color-background);
+}
+
+fieldset {
+  padding: var(--layout-gutter);
+  margin: 0;
+}
+
+input[type="text"] {
+  border: none;
+  color: var(--color-input);
+  padding: 0 0.5em;
+  height: 1.5em;
+  line-height: 1.5em;
+}
